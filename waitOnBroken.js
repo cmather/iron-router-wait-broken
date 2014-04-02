@@ -9,6 +9,13 @@ if (Meteor.isClient) {
   Router.configure({
     'loadingTemplate': 'loading'
   });
+
+  // loading hook is now opt-in. Maybe we should
+  // make it an option in router.configure, or
+  // if the loadingTemplate is specified we auto add
+  // it.
+  Router.onBeforeAction('loading');
+
   Router.map(function () {
     this.route('hello', {
       path: '/',
